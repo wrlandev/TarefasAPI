@@ -1,4 +1,9 @@
 
+using Microsoft.EntityFrameworkCore;
+using TarefasAPI.Data;
+using TarefasAPI.Repositorios;
+using TarefasAPI.Repositorios.Interfaces;
+
 namespace TarefasAPI
 {
     public class Program
@@ -13,6 +18,11 @@ namespace TarefasAPI
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddScoped<IUsuario, Usuario>();
+            builder.Services.AddDbContext<TarefasDBContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnction"));
+            });
 
             var app = builder.Build();
 
