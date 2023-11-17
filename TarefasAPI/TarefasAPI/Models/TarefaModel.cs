@@ -8,5 +8,7 @@ namespace TarefasAPI.Models
         public string? Nome { get; set; }
         public string? Descricao { get; set; }
         public TarefasEnum Status { get; set; }
+        public int? UsuarioId { get; set; }
+        public virtual UsuarioModel? Usuario { get; set; }
     }
 }

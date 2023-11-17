@@ -13,6 +13,8 @@ namespace TarefasAPI.Data
             builder.Property(x => x.Nome).IsRequired().HasMaxLength(50);
             builder.Property(x => x.Descricao).IsRequired().HasMaxLength(150);
             builder.Property(x => x.Status).IsRequired();
+            builder.Property(x => x.UsuarioId);
+            builder.HasOne(x => x.Usuario);
         }
     }
 }

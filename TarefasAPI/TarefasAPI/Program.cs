@@ -19,6 +19,7 @@ namespace TarefasAPI
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddScoped<IUsuario, Usuario>();
+            builder.Services.AddScoped<ITarefa, Tarefa>();
             builder.Services.AddDbContext<TarefasDBContext>(options =>
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnction"));
